@@ -22,3 +22,5 @@
 
 .env
 /vendor/*
+/*/.DS_Store
+
