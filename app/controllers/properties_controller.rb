@@ -25,6 +25,7 @@ class PropertiesController < ApplicationController
   end
   def update
     if @property.update(property_params)
+    # if @property.update(property_params)
       redirect_to  properties_path, notice: %(登録情報を更新しました。)
     else
       redirect_to  properties_path, notice: %(登録情報の更新に失敗しました。)
@@ -44,4 +45,7 @@ class PropertiesController < ApplicationController
   def property_params
     params.require(:property).permit(:name, :price, :address, :age, :note, {stations_attributes:[:id, :line, :station_name, :minute, :property_id, :_destroy]})
   end
+  # def property_params_edit
+  #   params.require(:property).permit(:name, :price, :address, :age, :note, {stations_attributes:[:id, :line, :station_name, :minute, :property_id]})
+  # end
 end
