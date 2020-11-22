@@ -18,4 +18,4 @@
   徒歩分数  <%= station.minute %><br>
   <% count+=1 %>
 <% end %>
-<%= link_to %(一覧へ戻る),  properties_path %>
+<%= link_to %(一覧へ戻る),  properties_path %> | <%= link_to %(編集), edit_property_path(@property.id) %>

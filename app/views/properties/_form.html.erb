@@ -7,7 +7,6 @@
 <% end %>
 <% count=1 %>
 <%= form_with(model: property, local:true)do |f| %>
-<%# <%= form_with(model: property, local:true, url: choose_create_or_edit(property.id))do |f| %> %>
   <%= f.hidden_field :name %>
   <%= f.hidden_field :price %>
   <%= f.hidden_field :address %>
@@ -36,3 +35,4 @@
   <% end %>
   <%= f.submit %>
 <% end %>
+<%= link_to %(一覧へ戻る),  properties_path %>
