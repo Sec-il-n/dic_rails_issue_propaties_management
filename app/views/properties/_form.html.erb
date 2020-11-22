@@ -7,6 +7,7 @@
 <% end %>
 <% count=1 %>
 <%= form_with(model: property, local:true)do |f| %>
+<%# <%= form_with(model: property, local:true, url: choose_create_or_edit(property.id))do |f| %> %>
   <%= f.hidden_field :name %>
   <%= f.hidden_field :price %>
   <%= f.hidden_field :address %>
@@ -24,9 +25,9 @@
   <%= f.text_area :note %><br>
   ---
   <%= f.fields_for :stations do |ff| %>
-    <h3>最寄り駅<%= count %></h3>
+      <h3>最寄り駅<%= count %></h3>
       <%= ff.label :line %><br>
-      <%= ff.text_field :line%><br>
+      <%= ff.text_field :line %><br>
       <%= ff.label :station_name %><br>
       <%= ff.text_field :station_name %><br>
       <%= ff.label :minute %><br>
