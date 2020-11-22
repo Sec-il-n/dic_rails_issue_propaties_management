@@ -1,5 +1,7 @@
 class PropertiesController < ApplicationController
+  include PropertyConcern
   before_action :set_property, only:[:show, :edit, :update, :destroy]
+  
   def new
     @property = Property.new
     2.times.map{@property.stations.build}
@@ -30,7 +32,6 @@ class PropertiesController < ApplicationController
     else
       flash.now[:danger] = %(登録情報の更新に失敗しました。)
       render :edit
-      # redirect_to  properties_path, notice: %(登録情報の更新に失敗しました。)
     end
   end
   def destroy
@@ -40,14 +41,4 @@ class PropertiesController < ApplicationController
       redirect_to properties_path, notice: %(登録情報の削除に失敗しました。)
     end
   end
-  private
-  def set_property
-    @property = Property.find_by(id: params[:id])
-  end
-  def property_params
-    params.require(:property).permit(:name, :price, :address, :age, :note, {stations_attributes:[:id, :line, :station_name, :minute, :property_id, :_destroy]})
-  end
-  # def property_params_edit
-  #   params.require(:property).permit(:name, :price, :address, :age, :note, {stations_attributes:[:id, :line, :station_name, :minute, :property_id]})
-  # end
 end

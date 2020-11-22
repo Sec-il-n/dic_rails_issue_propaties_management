@@ -12,6 +12,5 @@ class Property < ApplicationRecord
     exists = attributes[:id].present?
     empty = attributes[:line].blank? and attributes[:station_name].blank? and attributes[:minute].blank?
       attributes.merge!(_destroy:'1') if exists && empty
-      # !exists && empty#falseを返す？
   end
 end
