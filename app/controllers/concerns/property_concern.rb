@@ -7,6 +7,6 @@ module PropertyConcern
     @property = Property.find_by(id: params[:id])
   end
   def property_params
-    params.require(:property).permit(:name, :price, :address, :age, :note, {stations_attributes:[:id, :line, :station_name, :minute, :property_id, :_destroy]})
+    params.require(:property).permit(:name, :price, :address, :age, :note, {stations_attributes:%i(id, line, station_name, minute, property_id, _destroy)})
   end
 end
