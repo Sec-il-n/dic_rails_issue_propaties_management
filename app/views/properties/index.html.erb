@@ -12,16 +12,16 @@
   <tbody>
     <% @properties.each do |property| %>
     <tr>
-        <td><%= property.name %></td>
-        <td><%= property.price %>円</td>
-        <td><%= property.address %></td>
-        <td><%= property.age %>年</td>
-        <td><%= property.note %></td>
+        <td id="name"><%= property.name %></td>
+        <td id="price"><%= comma_separater(property.price) %><br>円</td>
+        <td id="address"><%= property.address %></td>
+        <td id="age"><%= property.age %><br>年</td>
+        <td id="note"><%= property.note %></td>
         <td><%= link_to %(詳細), property_path(property.id) %></td>
         <td><%= link_to %(編集), edit_property_path(property.id) %></td>
         <td><%= link_to %(削除),property_path(property.id), method: :delete, data: {confirm: %(本当に削除しますか。)} %></td>
     </tr>
     <% end %>
   </tbody>
-</table>
+</table><br><br>
 <%= link_to '物件を登録する', new_property_path %>

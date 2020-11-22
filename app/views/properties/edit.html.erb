@@ -1,1 +1,3 @@
-<%= render 'form', property: @property %>
+<h1>物件編集</h1>
+<%= render 'form', property: @property %><br><br>
+<%= link_to %(詳細),  propert_path(@property.id) %>｜<%= link_to %(戻る),  properties_path %>
