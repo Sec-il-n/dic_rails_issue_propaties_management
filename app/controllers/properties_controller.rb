@@ -28,7 +28,9 @@ class PropertiesController < ApplicationController
     # if @property.update(property_params)
       redirect_to  properties_path, notice: %(登録情報を更新しました。)
     else
-      redirect_to  properties_path, notice: %(登録情報の更新に失敗しました。)
+      flash.now[:danger] = %(登録情報の更新に失敗しました。)
+      render :edit
+      # redirect_to  properties_path, notice: %(登録情報の更新に失敗しました。)
     end
   end
   def destroy
